@@ -4,7 +4,11 @@
 DECRYPTION_KEY=${ENCRYPTION_KEY}
 
 if [ -z "$DECRYPTION_KEY" ]; then
-  echo "Error: ENCRYPTION_KEY is not set"
+  DECRYPTION_KEY = $(cat /run/secrets/encryption_key)
+fi
+
+if [ -z "$DECRYPTION_KEY" ]; then
+  echo "Error: No decryption key found"
   exit 1
 fi
 
