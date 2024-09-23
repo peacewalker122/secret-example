@@ -17,3 +17,6 @@ docker build -t secret-example .
 ```bash
 docker run --name secret-example -e ENCRYPTION_KEY=${YOUR_ENCRYPTION_KEY} -v /path/into/encrypted.env:/app/.env.enc -d secret-example:latest
 ```
+Few things to **setup** before running the container:
+1. Set the `ENCRYPTION_KEY` in the container environment
+2. Mount the encrypted `.env.enc` file to the container
